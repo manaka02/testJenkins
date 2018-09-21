@@ -1,0 +1,10 @@
+---
+- name : Check disk usage and left storage
+  assert:
+    that: 
+      - not {{ item.mount == '/' and ( item.size_available < item.size_total - ( item.size_total|float * 0.8 ) ) }}
+      - not {{ item.mount == '/var' and ( item.size_available < item.size_total - ( item.size_total|float * 0.8 ) ) }}
+    msg : "Available disk space low (-20%) in {{inventory_hostname}} "
+  with_items: '{{ ansible_mounts }}'
+  # ignore_errors: yes
+  register: disk_free

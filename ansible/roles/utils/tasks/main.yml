@@ -1,0 +1,7 @@
+---
+
+- name : installation de modules
+  apt : name={{ item }} update_cache=yes state=latest
+  with_items : 
+    - vim
+    - git

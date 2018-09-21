@@ -1,0 +1,7 @@
+---
+- name : Create a new user
+  user : name={{ user }} comment="my username"
+
+- name : add SSH key to my new User
+  when : 
+  authorized_key : key={{ lookup('file', '~/.ssh/id_rsa.pub')}} user={{user}}
