@@ -1,7 +1,7 @@
 ---
 - name : installation
   hosts : all
-  remote_user : root
+  remote_user : jenkins
   vars : 
     user : manaka
   roles : 
