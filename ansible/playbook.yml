@@ -1,9 +1,6 @@
 ---
 - name : installation
   hosts : all
-  remote_user : jenkins
-  vars : 
-    user : manaka
   roles : 
     - diskUsage
 
