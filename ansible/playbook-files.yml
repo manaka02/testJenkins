@@ -1,0 +1,11 @@
+---
+- name : installation
+  hosts : backup
+  roles : 
+    - role : backup-files
+      dest_folder : /home/ubuntu/backup-mora/
+      folder_name : backup-{{ ansible_date_time.date }}
+      src_folder : /home/ubuntu/woocommerce-payment-telma/
+      src_user : root
+      remote_server : web04.talk.mg
+...

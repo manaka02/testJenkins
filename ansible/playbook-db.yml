@@ -1,0 +1,13 @@
+---
+- name : installation
+  hosts : database
+  roles : 
+    - role : backup-db
+      exclude_db:
+        - Database
+        - information_schema
+        - sys
+        - performance_schema
+        - mysql
+        - odoo_sync
+...
