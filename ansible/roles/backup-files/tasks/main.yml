@@ -1,0 +1,29 @@
+---
+
+- name : create directory for backup (name with date)
+  file : path={{dest_folder}}{{folder_backup}} state=directory
+
+- name : backup mora.mg website
+  command : rsync -avzh {{src_user}}@{{remote_server}}:{{src_folder}} .
+  args : 
+    chdir : '{{dest_folder}}{{folder_backup}}'
+
+
+- name : find file with name backup
+  find : 
+    path :  '{{dest_folder}}'
+    file_type: directory
+    contains : backup
+    age : 5d
+  register : list_backup
+# - debug : var=list_backup.files
+
+
+- name : remove old backup
+  file : 
+    path : '{{item.path}}'
+    state : absent
+  with_items : '{{list_backup.files}}'
+
+
+

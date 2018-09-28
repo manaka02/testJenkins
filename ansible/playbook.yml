@@ -1,8 +1,20 @@
 ---
 - name : installation
-  hosts : all
+  hosts : database
   roles : 
-    - diskUsage
-  
-  
+    - role : backup-files
+      dest_folder : /home/ubuntu/backup-mora/
+      folder_backup : backup-{{ ansible_date_time.date }}
+      src_folder : /home/ubuntu/woocommerce-payment-telma/
+      src_user : root
+      remote_server : web04.talk.mg
+    - role : backup-db
+      exclude_db:
+        - Database
+        - information_schema
+        - sys
+        - performance_schema
+        - mysql
+        - odoo_sync
+    - role : diskUsage
 ...
