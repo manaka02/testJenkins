@@ -24,3 +24,4 @@
         login_host: '{{ db_host }}'
       with_items: "{{ dblist.stdout_lines | difference(exclude_db) }}"
 
+
