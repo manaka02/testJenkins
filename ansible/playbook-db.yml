@@ -1,6 +1,6 @@
 ---
 - name : installation
-  hosts : backup
+  hosts : websiteToBackup
   roles : 
     - role : backup-db
       exclude_db:

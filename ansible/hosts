@@ -3,5 +3,8 @@ web04.talk.mg
 web02.talk.mg
 vps589835.ovh.net
 
-[backup]
+[backup-host]
 vps589835.ovh.net
+
+[websiteToBackup]
+web04.talk.mg
