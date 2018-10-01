@@ -14,9 +14,9 @@
     path :  '{{dest_folder}}'
     file_type: directory
     contains : backup
-    age : 3d
+    age : 5d
   register : list_backup
-# - debug : var=list_backup.files
+- debug : var=list_backup.files
 
 
 - name : remove old backup
