@@ -4,7 +4,7 @@
   file : path={{dest_folder}}{{folder_name}} state=directory
 
 - name : backup mora.mg website
-  command : rsync -avzh --times {{src_user}}@{{remote_server}}:{{src_folder}} .
+  command : rsync -avzh --times --omit-dir-times  {{src_user}}@{{remote_server}}:{{src_folder}} .
   args : 
     chdir : '{{dest_folder}}{{folder_name}}'
 
