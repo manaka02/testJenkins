@@ -1,6 +1,6 @@
 ---
     - name : create directory for backup (name with date)
-      file : path={{dest_folder}}{{folder_name}} state=directory
+      file : path={{dest_folder}} state=directory
 
     - name: get db names
       shell: 'mysql -u {{ user }} -p{{ pass }} -h{{ db_host }} --port={{ port | default("3306") }} -e "show databases;" '
@@ -16,7 +16,8 @@
       mysql_db:
         state: dump
         name: "{{ item }}"
-        target: "{{dest_folder}}{{folder_name}}/{{ item }}-{{lookup('pipe','date +%Y%m%d%H%M%S')}}.sql"
+        # target: "{{dest_folder}}/{{ item }}-{{lookup('pipe','date +%Y%m%d%H%M%S')}}.sql"
+        target: "{{dest_folder}}/{{ item }}.sql"
         login_user: '{{ user }}'
         login_password: "{{ pass }}"
         login_port: '{{ port | default("3306") }}'

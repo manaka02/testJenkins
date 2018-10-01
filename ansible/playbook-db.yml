@@ -1,6 +1,6 @@
 ---
 - name : installation
-  hosts : database
+  hosts : backup
   roles : 
     - role : backup-db
       exclude_db:
@@ -9,5 +9,4 @@
         - sys
         - performance_schema
         - mysql
-        - odoo_sync
 ...
