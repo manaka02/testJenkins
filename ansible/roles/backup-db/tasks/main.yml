@@ -8,9 +8,9 @@
     # - name: Install the Python MySQLB module
     #   pip: name=MySQL-python
 
-    - name: output datbase list
-      debug:
-        msg: '{{ dblist }}'
+    # - name: output datbase list
+    #   debug:
+    #     msg: '{{ dblist }}'
 
     - name: backup databases
       mysql_db:
