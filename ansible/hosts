@@ -2,9 +2,10 @@
 web04.talk.mg
 web02.talk.mg
 vps589835.ovh.net
+prod.talk.mg
 
 [backup-host]
 vps589835.ovh.net
 
 [websiteToBackup]
-web02.talk.mg
+prod.talk.mg
